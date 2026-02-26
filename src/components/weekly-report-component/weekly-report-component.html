@@ -1,0 +1,108 @@
+<div class="card">
+    <div class="form-row">
+
+        <div class="form-group">
+            <label>Select Team</label>
+            <p-select [options]="teams" [(ngModel)]="selectedTeam" (onChange)="nextClick = false" optionLabel="name" placeholder="Select Team"
+                appendTo="body">
+            </p-select>
+        </div>
+
+        <div class="form-group">
+            <label>Select Persona</label>
+            <p-select [options]="personas" [(ngModel)]="selectedPersona" (onChange)="nextClick = false" optionLabel="name" placeholder="Select Persona"
+                appendTo="body">
+            </p-select>
+        </div>
+
+        <div class="button-group">
+            <button pButton label="Next" aria-label="Next" (click)="goNext()"></button>
+        </div>
+
+    </div>
+</div>
+
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+
+
+<div *ngIf="nextClick && selectedTeam && selectedPersona" class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="sidebar-header">
+            <h3>
+                Weekly Updates
+                <p-badge [value]="pendingCount" severity="warn"></p-badge>
+            </h3>
+
+            <button pButton icon="pi pi-plus" class="p-button-sm p-button-text" (click)="createNextEntry()"
+                aria-label="Create new entry">
+            </button>
+        </div>
+
+        <div *ngFor="let update of filteredUpdates" class="update-card" [class.active]="update === selectedUpdate"
+            (click)="selectUpdate(update)">
+
+            <div class="date-box">
+                {{ update.date | date:'dd MMM' }}
+            </div>
+
+            <p-tag [value]="update.status" [severity]="update.status === 'Submitted' ? 'success' : 'warn'">
+            </p-tag>
+
+        </div>
+      
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content" *ngIf="selectedUpdate">
+
+        <div class="header">
+            <h2>{{ selectedUpdate.date | date:'fullDate' }}</h2>
+
+            <button pButton label="Submit" icon="pi pi-check" class="p-button-primary" (click)="submit()"
+                aria-label="Submit weekly report">
+            </button>
+        </div>
+
+        <p-divider></p-divider>
+
+        <form [formGroup]="form" class="form-section">
+
+            <label>Weekly Tasks *</label>
+            <p-editor formControlName="weeklyTasks"></p-editor>
+
+            <label>Highlights *</label>
+            <p-editor formControlName="highlights"></p-editor>
+
+            <label>Planned Stories *</label>
+            <input pInputText formControlName="plannedStories">
+
+            <label>Delivered Stories *</label>
+            <input pInputText formControlName="deliveredStories">
+
+            <label>Planned Points *</label>
+            <input pInputText formControlName="plannedPoints">
+
+            <label>Delivered Points *</label>
+            <input pInputText formControlName="deliveredPoints">
+
+            <label>QA Defects *</label>
+            <input pInputText formControlName="qaDefects">
+
+            <label>UAT Defects *</label>
+            <input pInputText formControlName="uatDefects">
+
+            <label>Capacity *</label>
+            <input pInputText formControlName="capacity">
+
+            <label>Actual Hours *</label>
+            <input pInputText formControlName="actualHours">
+
+        </form>
+
+    </div>
+</div>

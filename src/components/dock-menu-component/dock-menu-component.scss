@@ -1,0 +1,10 @@
+::ng-deep {
+    .p-dock-list-container {
+        display: flex;
+        pointer-events: auto;
+        background: #9f7ed11a;
+        border: 1px solid var(--p-dock-border-color);
+        padding: var(--p-dock-padding);
+        border-radius: var(--p-dock-border-radius);
+    }
+}

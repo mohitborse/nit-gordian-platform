@@ -1,0 +1,45 @@
+
+:root {
+  --bg: #f4f1ec;
+  --bg2: #ede9e2;
+  --surface: #faf8f5;
+  --surface2: #f0ece5;
+  --surface3: #e8e3da;
+  --border: #ddd8cf;
+  --border2: #ccc5b9;
+  --text: #1c1814;
+  --muted: #7a7060;
+  --dim: #b0a898;
+  --ink: #2c2518;
+  --accent: #c85a1e;
+
+  --ppd: #1d72e8;
+  --ppd-lt: rgba(29,114,232,0.1);
+  --ppd-br: rgba(29,114,232,0.3);
+  --prod: #d63b3b;
+  --prod-lt: rgba(214,59,59,0.1);
+  --prod-br: rgba(214,59,59,0.3);
+
+  --panda: #4b3f72;
+  --avenger: #1a6b4a;
+  --apollo: #b45309;
+
+  --planned: #d97706;
+  --inprog: #0891b2;
+  --completed: #16a34a;
+
+  --r: 10px;
+  --rl: 16px;
+  --sh: 0 1px 3px rgba(0,0,0,0.07),0 4px 14px rgba(0,0,0,0.05);
+  --sh-lg: 0 8px 32px rgba(0,0,0,0.13),0 2px 8px rgba(0,0,0,0.07);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Epilogue', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}/* You can add global styles to this file, and also import other style files */

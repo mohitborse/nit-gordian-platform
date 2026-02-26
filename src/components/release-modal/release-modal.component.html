@@ -1,0 +1,58 @@
+<p-dialog [(visible)]="visible" [modal]="true" [closable]="false" [style]="{width: '500px'}">
+
+  <div class="m-hdr">
+    <div class="m-title">New Release</div>
+    <button type="button" class="m-close" (click)="onClose()">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+
+  <form [formGroup]="releaseForm" class="m-body">
+
+    <div class="fg">
+      <label>Title *</label>
+      <input pInputText formControlName="title" placeholder="e.g. API Gateway v2.4.1" />
+    </div>
+
+    <div class="fg">
+      <label>Description</label>
+      <textarea pInputTextarea formControlName="description" placeholder="Changes, fixes, or features in this release…" rows="3"></textarea>
+    </div>
+
+    <div class="row2">
+      <div class="fg">
+        <label>Environment *</label>
+        <p-select appendTo="body" [options]="envOptions" formControlName="environment" placeholder="Select Environment"></p-select>
+      </div>
+
+      <div class="fg">
+        <label>POD *</label>
+        <p-select appendTo="body" [options]="podOptions" formControlName="pod" placeholder="Select POD"></p-select>
+      </div>
+    </div>
+
+    <div class="row3">
+      <div class="fg">
+        <label>Date *</label>
+        <p-datepicker appendTo="body" formControlName="date" [showIcon]="true" dateFormat="yy-mm-dd"></p-datepicker>
+      </div>
+
+      <div class="fg">
+        <label>Time</label>
+        <input pInputText type="time" formControlName="time" />
+      </div>
+
+      <div class="fg">
+        <label>Status</label>
+        <p-select appendTo="body" [options]="statusOptions" formControlName="status"></p-select>
+      </div>
+    </div>
+
+  </form>
+
+  <div class="m-ftr">
+    <button type="button" class="btn-cancel" (click)="onClose()">Cancel</button>
+    <button type="button" class="btn-save" (click)="onSave()">Save Release</button>
+  </div>
+
+</p-dialog>

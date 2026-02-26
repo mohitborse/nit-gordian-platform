@@ -1,0 +1,207 @@
+/* ===============================
+   HEADER CONTAINER
+================================= */
+
+.hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: var(--surface);
+  border-bottom: 1.5px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ===============================
+   LEFT SIDE
+================================= */
+
+.hdr-l {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* LOGO */
+.logo {
+  width: 42px;
+  height: 42px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 1px;
+  box-shadow: var(--sh);
+}
+
+/* TITLE */
+.h-title {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+/* SUBTITLE */
+.h-sub {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* ===============================
+   RIGHT SIDE
+================================= */
+
+.hdr-r {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* FILTER GROUP */
+.fg-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* FILTER LABEL */
+.fl {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-right: 4px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+
+/* DIVIDER */
+.vd {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+
+/* ===============================
+   CHIPS
+================================= */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  transition: all .2s ease;
+  user-select: none;
+}
+
+.chip:hover {
+  background: var(--surface3);
+  border-color: var(--border2);
+  transform: translateY(-1px);
+}
+
+/* ACTIVE CHIP */
+.chip.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* ALL CHIP */
+.a-all {
+  font-weight: 600;
+}
+
+/* DOT */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* ===============================
+   ADD BUTTON
+================================= */
+
+.btn-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--r);
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .2s ease;
+  box-shadow: var(--sh);
+}
+
+.btn-add:hover {
+  background: #a94412;
+  transform: translateY(-1px);
+}
+
+.btn-add .material-icons {
+  font-size: 18px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 1100px) {
+  .hdr {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .hdr-r {
+    width: 100%;
+    gap: 14px;
+  }
+
+  .vd {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hdr-r {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fg-wrap {
+    flex-wrap: wrap;
+  }
+
+  .btn-add {
+    width: 100%;
+    justify-content: center;
+  }
+}

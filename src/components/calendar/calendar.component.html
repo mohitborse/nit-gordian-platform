@@ -1,0 +1,70 @@
+<app-header (addRelease)="onNewRelease()" (filterChange)="filterChange($event)"></app-header>
+<div class="main-view">
+  <div class="cal-panel">
+
+    <!-- NAV -->
+    <div class="cal-nav">
+      <div style="display:flex;align-items:baseline;gap:10px">
+        <span class="cal-title">{{ monthLabel }}</span>
+        <span class="cal-title cal-yr">{{ monthYear }}</span>
+      </div>
+
+      <div class="nav-r">
+
+        <!-- LEGEND -->
+        <div class="legend">
+          <div class="li">
+            <div class="ld ppd"></div>PPD
+          </div>
+          <div class="li">
+            <div class="ld prod"></div>Production
+          </div>
+          <div class="li">
+            <div class="ld panda"></div>Panda
+          </div>
+          <div class="li">
+            <div class="ld avenger"></div>Avenger
+          </div>
+          <div class="li">
+            <div class="ld apollo"></div>Apollo
+          </div>
+        </div>
+
+        <!-- NAV BUTTONS -->
+        <div class="nav-btns">
+          <div class="nav-btns">
+            <button class="nb" (click)="prevMonth()"><span class="material-icons">chevron_left</span></button>
+            <button class="nb" (click)="goNow()" title="Today"><span class="material-icons">today</span></button>
+            <button class="nb" (click)="nextMonth()"><span class="material-icons">chevron_right</span></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GRID -->
+    <div class="cal-grid">
+
+      <!-- Day Headers -->
+      <div class="dh" *ngFor="let d of daysShort">{{ d }}</div>
+
+      <!-- Days -->
+      <div class="dc" *ngFor="let cell of calendarCells" [class.sel]="cell.date === selectedDate"
+        [class.today]="isToday(cell.date)" (click)="selectDate(cell.date)">
+        <div class="dn">{{ cell.day }}</div>
+
+        <div class="pill" *ngFor="let r of cell.releases" [ngClass]="r.environment === 'PPD' ? 'ppd' : 'prod'">
+          <span class="pill-pod">
+            {{ r.podIcon }} {{ r.pod }}
+          </span>
+          {{ r.title }}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <app-sidebar [selectedDate]="selectedDate()" (editRelease)="onEditRelease($event)">
+  </app-sidebar>
+</div>
+<app-release-modal></app-release-modal>

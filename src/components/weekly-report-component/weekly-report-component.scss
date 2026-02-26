@@ -1,0 +1,98 @@
+.form-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.button-group {
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Make PrimeNG select full width */
+p-select {
+    width: 100%;
+}
+
+.card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+// WSR
+.layout {
+  display: flex;
+  height: 100vh;
+  background: #f4f6f9;
+}
+
+.sidebar {
+  width: 280px;
+  background: #ffffff;
+  padding: 16px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.update-card {
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.update-card:hover {
+  background: #f3f4f6;
+}
+
+.update-card.active {
+  background: #eef2ff;
+  border-left: 4px solid #3b82f6;
+}
+
+.date-box {
+  font-weight: 500;
+}
+
+.content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-section label {
+  margin-top: 16px;
+  display: block;
+  font-weight: 500;
+}

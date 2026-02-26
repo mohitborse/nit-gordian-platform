@@ -1,0 +1,80 @@
+
+
+<header class="hdr">
+    <div class="hdr-l">
+        <div class="logo">RP</div>
+        <div>
+            <div class="h-title">Release Planner</div>
+            <div class="h-sub">deployment calendar</div>
+        </div>
+    </div>
+    <div class="hdr-r">
+
+        <!-- ENV -->
+        <div class="fg-wrap">
+            <span class="fl">Env</span>
+
+            <div class="chip a-all" [class.active]="isActive('env','all')" (click)="setFilter('env','all')">
+                All
+            </div>
+
+            <div class="chip" [class.active]="isActive('env','PPD')" (click)="setFilter('env','PPD')">
+                <span class="dot" style="background:var(--ppd)"></span>
+                PPD
+            </div>
+
+            <div class="chip" [class.active]="isActive('env','PROD')" (click)="setFilter('env','PROD')">
+                <span class="dot" style="background:var(--prod)"></span>
+                Prod
+            </div>
+        </div>
+
+        <div class="vd"></div>
+
+        <!-- STATUS -->
+        <div class="fg-wrap">
+            <span class="fl">Status</span>
+
+            <div class="chip a-all" [class.active]="isActive('status','all')" (click)="setFilter('status','all')">
+                All
+            </div>
+
+            <div class="chip" [class.active]="isActive('status','Planned')" (click)="setFilter('status','Planned')">
+                Planned
+            </div>
+
+            <div class="chip" [class.active]="isActive('status','In Progress')"
+                (click)="setFilter('status','In Progress')">
+                In Progress
+            </div>
+
+            <div class="chip" [class.active]="isActive('status','Completed')" (click)="setFilter('status','Completed')">
+                Completed
+            </div>
+        </div>
+
+        <div class="vd"></div>
+
+        <!-- POD -->
+        <div class="fg-wrap">
+            <span class="fl">POD</span>
+
+            <p-select 
+                [options]="podOptions" 
+                [(ngModel)]="selectedPod" 
+                optionLabel="label" 
+                optionValue="value"
+                (onChange)="setFilter('pod', $event.value)"
+                placeholder="All"
+                [style]="{'width': '150px'}">
+            </p-select>    </div>
+
+        <div class="vd"></div>
+
+        <button class="btn-add" (click)="openModal()">
+            <span class="material-icons">add</span>
+            New Release
+        </button>
+
+    </div>
+</header>

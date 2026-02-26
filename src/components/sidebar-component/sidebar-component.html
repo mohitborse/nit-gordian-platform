@@ -1,0 +1,62 @@
+<div class="sb">
+    <div class="sb-hdr">
+        <div class="sb-date" id="sb-d">{{ formattedDate }}</div>
+        <div class="sb-sub" id="sb-s">{{ dayOfWeek }}</div>
+    </div>
+    <div class="sb-body" id="sb-body">
+        <div *ngIf="releasesForSelectedDate.length === 0" class="no-releases">
+            <div class="no-r">
+                <span class="material-icons">event_available</span>
+                <p>No releases here.
+                    <br>
+                    <span style="font-size:11px;opacity:.6">Use "+ New Release" to add one.</span>
+                </p>
+            </div>
+        </div>
+        <div *ngFor="let release of releasesForSelectedDate" class="rcard"
+            [ngClass]="release.environment.toLowerCase()">
+            <div class="c-head">
+                <div class="c-title">{{ release.title }}</div>
+                <div class="badges">
+                    <span class="bdg" [ngClass]="release.environment.toLowerCase()">
+                        {{ release.environment }}
+                    </span>
+                    <span class="bdg" [ngClass]="release.pod.toLowerCase()">
+                        {{ getPodIcon(release.pod) }} {{ release.pod }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="c-meta">
+                <div class="c-status" [ngClass]="'s-' + release.status.toLowerCase().replace(' ', '-')">
+                    <span class="sdot"></span>{{ release.status }}
+                </div>
+                <div class="c-time">
+                    <span class="material-icons">schedule</span>{{ formatTime(release.time) }}
+                </div>
+            </div>
+            <div class="c-acts">
+                <button class="cab" (click)="onEdit(release)">
+                    <span class="material-icons">edit</span>Edit
+                </button>
+                <button class="cab del" (click)="onDelete(release.id)">
+                    <span class="material-icons">delete</span>Delete
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="stats">
+        <div class="stat">
+            <div class="sn ca" id="st-t">{{ totalReleases }}</div>
+            <div class="sl">Total</div>
+        </div>
+        <div class="stat">
+            <div class="sn cp" id="st-p">{{ ppdCount }}</div>
+            <div class="sl">PPD</div>
+        </div>
+        <div class="stat">
+            <div class="sn cr" id="st-r">{{ prodCount }}</div>
+            <div class="sl">Prod</div>
+        </div>
+    </div>
+</div>

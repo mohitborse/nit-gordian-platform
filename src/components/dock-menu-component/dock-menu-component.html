@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="flex flex-wrap gap-4 mb-8">
+    </div>
+    <div class="dock-window">
+        <p-dock [model]="items" [position]="'top'">
+            <ng-template #item let-item>
+                <img [pTooltip]="item.label" tooltipPosition="top" [src]="item.icon" [alt]="item.label || 'Dock item'" width="100%" />
+            </ng-template>
+        </p-dock>
+    </div>
+</div>
