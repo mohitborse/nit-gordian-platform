@@ -10,11 +10,10 @@ export const routes: Routes = [
             { path: '', redirectTo: 'release-planner', pathMatch: 'full' },
             { path: 'release-planner', loadComponent: () => import('../components/calendar/calendar').then(m => m.CalendarComponent), },
             { path: 'wsr', loadComponent: () => import('../components/weekly-report-component/weekly-report-component').then(m => m.WeeklyReportComponent) },
-            // Add more child routes here as needed
+            { path: 'sprint-dashboard', loadComponent: () => import('../components/sprint-dashboard/sprint-dashboard').then(m => m.SprintDashboard) },
         ]
 
     },
-    // 👇 ALWAYS LAST
     { path: '**', redirectTo: 'home' }
 
 ];

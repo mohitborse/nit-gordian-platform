@@ -1,0 +1,152 @@
+:host {
+  display: block;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 10px;
+}
+
+/* =========================================
+   GLOBAL THEME TRANSITION SYSTEM
+========================================= */
+
+/* Smooth theme animation */
+.theme-transition,
+.theme-transition * {
+  transition:
+    background 400ms cubic-bezier(.4, 0, .2, 1),
+    background-color 400ms cubic-bezier(.4, 0, .2, 1),
+    color 300ms ease,
+    border-color 300ms ease,
+    box-shadow 400ms ease;
+}
+
+/* =========================================
+   BASE (LIGHT)
+========================================= */
+
+.dashboard-root {
+  --bg-main: #f8fafc;
+  --text-main: #0f172a;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --accent: #4f46e5;
+
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Theme button */
+.theme-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* =========================================
+   🌙 DARK MODE
+========================================= */
+
+.theme-dark {
+  --bg-main: #0f172a;
+  --text-main: #e2e8f0;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  --accent: #818cf8;
+}
+
+/* =========================================
+   🚀 GLASS MODE
+========================================= */
+
+.theme-glass {
+  --bg-main: radial-gradient(circle at 30% 30%, #6366f1, #0f172a);
+  --text-main: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --accent: #c7d2fe;
+
+  backdrop-filter: blur(20px);
+}
+
+.theme-glass .bg-white,
+.theme-glass .bg-slate-800 {
+  backdrop-filter: blur(18px);
+}
+
+/* =========================================
+   ⚡ NEON GLASS MODE (FUTURISTIC)
+========================================= */
+
+.theme-neon {
+  --bg-main: radial-gradient(circle at 20% 20%, #0f172a, #020617);
+  --text-main: #e0f2fe;
+  --card-bg: rgba(0, 255, 255, 0.06);
+  --card-border: rgba(0, 255, 255, 0.4);
+  --card-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  --accent: #00ffff;
+}
+
+.theme-neon .bg-white,
+.theme-neon .bg-slate-800 {
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.2),
+    0 0 40px rgba(0, 255, 255, 0.15);
+}
+
+.theme-neon header h1 {
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+}
+
+.theme-neon .theme-btn {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  color: #00ffff;
+}
+
+/* =========================================
+   🏢 CORPORATE MODE (ENTERPRISE CLEAN)
+========================================= */
+
+.theme-corporate {
+  --bg-main: #f4f6f9;
+  --text-main: #1f2937;
+  --card-bg: #ffffff;
+  --card-border: #d1d5db;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --accent: #1f3a8a;
+}
+
+.theme-corporate header h1 {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.theme-corporate .bg-white:hover {
+  transform: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.theme-dark ::-webkit-scrollbar-thumb,
+.theme-glass ::-webkit-scrollbar-thumb,
+.theme-neon ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
