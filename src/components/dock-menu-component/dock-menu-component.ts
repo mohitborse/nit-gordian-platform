@@ -67,6 +67,13 @@ export class DockMenuComponent {
         command: () => {
           this.router.navigate(['/main/risk-tracker']);
         }
+      },
+      {
+        label: 'Sprint Dashboard',
+        icon: 'https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/activity.svg',
+        command: () => {
+          this.router.navigate(['/main/sprint-dashboard']);
+        }
       }
     ];
   }
