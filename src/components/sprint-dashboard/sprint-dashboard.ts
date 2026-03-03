@@ -23,7 +23,8 @@ export class SprintDashboard {
   //   localStorage.setItem('dashboard-theme', mode);
   // }
 
-
+  isUploading = signal(false);
+  isDragging = signal(false);
   currentTimestamp = signal(new Date());
 
   sprintData = signal({
@@ -91,6 +92,23 @@ export class SprintDashboard {
     const closed = this.sprintData().defects.trend.closedPerDay.map(d => d.count);
     return Math.max(...created, ...closed, 5); // Fallback to 5 for scale
   });
+
+  handleFileUpload(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    let fileList: FileList | null = element.files;
+    if (fileList && fileList.length > 0) {
+      this.isUploading.set(true);
+      const file = fileList[0];
+
+      // Simulate file processing delay
+      setTimeout(() => {
+        this.isUploading.set(false);
+        this.currentTimestamp.set(new Date());
+        // In a real app, you would parse the file here and update the sprintData signal
+        console.log(`File ${file.name} processed successfully.`);
+      }, 1500);
+    }
+  }
 
   simulateDataChange() {
     this.currentTimestamp.set(new Date());
